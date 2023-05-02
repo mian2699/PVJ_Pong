@@ -9,18 +9,21 @@ public class BallMovement : MonoBehaviour
 
     public Vector3 Speed;// = new Vector2(1f,0f);
     private Rigidbody2D rb;
-
     private void Start(){
          
             rb =transform.GetComponent<Rigidbody2D>();
 
-            rb.velocity = new Vector2(Speed.x,Speed.y);
+          //  rb.velocity = new Vector2(Speed.x,Speed.y);
 
     }
 
 
     private void Update()
-    {
+    {           
+
+             
+
+          rb.velocity =new Vector2(Speed.x,Speed.y);
             //float movHorizontal = Input.GetAxis("Horizontal");
 
             
@@ -43,11 +46,30 @@ public class BallMovement : MonoBehaviour
                 Vector3.right * Speed * Time.deltaTime;*/
 
     }
-
+        
     private void OnCollisionEnter2D(Collision2D col){
 
-            Speed *= -1;
-           //Debug.Log("Colision");
+        if (col.transform.CompareTag("Wall"))
+        {
+                   Speed.y*=-1f;     
+                
+        }else{
+                Debug.Log(col.collider.transform.name);
+                 //Speed.y = 0.5f;
+                Speed.y = Random.Range(-1f,1f);
+                Speed.x *= -1f;
+                 //  Debug.Log(rb.velocity);        
+        }
+ 
+
+    }
+
+    // cuando no es trigger
+
+    private void OnTriggerEnter2D(Collider2D collider){
+                Debug.Log("GOL!");  
+                transform.position= new Vector3(0f,0f,0f);
+
     }
  
 
