@@ -11,10 +11,27 @@ public class GameManager : MonoBehaviour
    public TextMeshProUGUI TextScore2;
 
    public BallMovement ball;
+
+   public PaddleMovement paddle1;
    
-   public void Start()
+   public PaddleMovement paddle2;
+
+
+   private void Start()
    {
         ball.OnGoal += OnGoalDelegate;
+         StartGame();
+    
+   }
+
+   private void Update(){
+
+         if ( Input.GetKeyDown(KeyCode.Space)){
+          Debug.Log ("ENTER");
+               StartGame();
+
+         }
+          
    }
 
 
@@ -41,6 +58,23 @@ public class GameManager : MonoBehaviour
 
         }
 
+        
+      StopGame();
 
    }
+
+   private void StartGame(){
+        ball.Run();
+        paddle1.Run();
+        paddle2.Run();
+   }     
+
+   
+   private void StopGame(){
+        ball.Stop();
+        paddle1.Stop();
+        paddle2.Stop();
+     
+   }
+
 }
