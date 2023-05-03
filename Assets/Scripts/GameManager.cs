@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class GameManager : MonoBehaviour
    
    public PaddleMovement paddle2;
 
+   public IABot iagame;
+
+   public bool IAJUG;
+
+   private string currentSceneName2;
 
    private void Start()
    {
@@ -24,15 +30,42 @@ public class GameManager : MonoBehaviour
     
    }
 
-   private void Update(){
 
-         if ( Input.GetKeyDown(KeyCode.Space)){
-          Debug.Log ("ENTER");
+
+   private void Update(){
+          
+
+         if ( Input.GetKeyDown(KeyCode.Space) ){
+                 Debug.Log ("ENTER");
                StartGame();
 
          }
+
+       string currentSceneName2 = SceneManager.GetActiveScene().name;
+          //Right Control key. LeftControl Left Control key.
+          if ( Input.GetKeyDown(KeyCode.LeftControl) &&  currentSceneName2 == "J1vsIA" ){
+
+                       //   Debug.Log ("ctrl1");
+                           
+               //SceneManager.LoadScene("J1vsIA");
+                           J1vsJ2();
+
+
+         }else if( Input.GetKeyDown(KeyCode.LeftControl) &&  currentSceneName2 == "J1vsJ2"){
+                     //     Debug.Log ("ctrl2");
+                   
+                          J1vsIA();
+         }
           
    }
+
+      public void J1vsJ2(){
+                 SceneManager.LoadScene("J1vsJ2");   
+     }
+
+     public void J1vsIA(){
+          SceneManager.LoadScene("J1vsIA");
+     }
 
 
 
@@ -64,16 +97,35 @@ public class GameManager : MonoBehaviour
    }
 
    private void StartGame(){
-        ball.Run();
-        paddle1.Run();
-        paddle2.Run();
+  
+     
+               ball?.Run();
+               paddle1?.Run();
+               paddle2?.Run();
+               iagame?.Run();
+         
+
+
    }     
 
    
    private void StopGame(){
-        ball.Stop();
+       /* ball.Stop();
         paddle1.Stop();
-        paddle2.Stop();
+        paddle2.Stop();*/
+
+        if(IAJUG){
+
+           ball?.Stop();
+           iagame?.Stop();
+           paddle1?.Stop();
+           
+        }else{
+
+            ball?.Stop();
+            paddle1?.Stop();
+            paddle2?.Stop();
+        }
      
    }
 

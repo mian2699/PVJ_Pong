@@ -293,7 +293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -53}
+  m_AnchoredPosition: {x: 497, y: -54}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &469357998
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 1.3170776}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9dc8b0802d00c044b64e3e5d3517b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: {x: 5, y: 0, z: 0}
+  Speed: {x: 10, y: 0, z: 0}
 --- !u!58 &595781715
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -684,6 +684,7 @@ GameObject:
   - component: {fileID: 630244440}
   - component: {fileID: 630244442}
   - component: {fileID: 630244443}
+  - component: {fileID: 630244444}
   m_Layer: 0
   m_Name: Paddle2
   m_TagString: Untagged
@@ -797,6 +798,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &630244444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630244439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4a3c912e37f4c4786914376ec4609f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 5
+  ball: {fileID: 595781714}
 --- !u!1 &1025708407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1064,8 @@ MonoBehaviour:
   ball: {fileID: 595781714}
   paddle1: {fileID: 1717243256}
   paddle2: {fileID: 630244442}
+  iagame: {fileID: 630244444}
+  IAJUG: 1
 --- !u!4 &1606640891
 Transform:
   m_ObjectHideFlags: 0

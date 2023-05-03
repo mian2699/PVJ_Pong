@@ -28,6 +28,9 @@ public class PaddleMovement : MonoBehaviour
 
                     /*transform.position += 
                     Vector3.up*movVertical*Speed*Time.deltaTime;*/
+        }else{
+
+            transform.position =new Vector3( transform.position.x,0f,0f);
         }
 
      

@@ -73,7 +73,7 @@ public class BallMovement : MonoBehaviour
         }else{
                 Debug.Log(col.collider.transform.name);
                  //Speed.y = 0.5f;
-                Speed.y = UnityEngine.Random.Range(-1f,1f);
+                Speed.y = UnityEngine.Random.Range(-3f,3f);
                 Speed.x *= -1f;
                  //  Debug.Log(rb.velocity);        
         }
@@ -84,13 +84,15 @@ public class BallMovement : MonoBehaviour
     // cuando no es trigger
 
     private void OnTriggerEnter2D(Collider2D collider){
+
                 Debug.Log("GOL!");  
                 OnGoalArgs args = new OnGoalArgs();
 
                 if ( rb.velocity.x < 0){
-                        args.jugador = TipoJugador.JUG2;
+                          Debug.Log(args.jugador);  
+                        args.jugador = TipoJugador.JUG2 ;
                 }else{
-                        args.jugador = TipoJugador.JUG1;
+                        args.jugador = TipoJugador.JUG1 ;
                 }
                 
                 OnGoal?.Invoke(this,args);
