@@ -47,24 +47,26 @@ public class GameManager : MonoBehaviour
 
                        //   Debug.Log ("ctrl1");
                            
-               //SceneManager.LoadScene("J1vsIA");
-                           J1vsJ2();
+               SceneManager.LoadScene("J1vsJ2");
+                         //  J1vsJ2();
 
 
          }else if( Input.GetKeyDown(KeyCode.LeftControl) &&  currentSceneName2 == "J1vsJ2"){
                      //     Debug.Log ("ctrl2");
-                   
-                          J1vsIA();
+                   SceneManager.LoadScene("J1vsIA");
+                       //   J1vsIA();
          }
           
    }
 
       public void J1vsJ2(){
-                 SceneManager.LoadScene("J1vsJ2");   
+             
+
+                  SceneManager.LoadScene("J1vsJ2");
      }
 
      public void J1vsIA(){
-          SceneManager.LoadScene("J1vsIA");
+             SceneManager.LoadScene("J1vsIA");   
      }
 
 
@@ -90,6 +92,8 @@ public class GameManager : MonoBehaviour
              
 
         }
+
+      
 
         
       StopGame();

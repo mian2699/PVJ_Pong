@@ -109,6 +109,7 @@ public class BallMovement : MonoBehaviour
     public void Stop(){
 
             running = false;
+               rb.velocity =  Vector2.zero;
     }
 
  
